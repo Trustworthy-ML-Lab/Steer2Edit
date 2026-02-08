@@ -3,7 +3,7 @@
 This is the official repository for the paper: [**Steer2Edit: From Activation Steering to Component-Level Editing**](). Here is our 5 min read [project website](https://lilywenglab.github.io/Steer2Edit/).
 
 <figure>
-  <img src="figs/overview.png" width="80%" alt="Steer2Edit overview">
+  <img src="figs/overview.png" width="100%" alt="Steer2Edit overview">
 </figure>
 
 This repository contains the full **Steer2Edit** pipeline with three behavior controls:
