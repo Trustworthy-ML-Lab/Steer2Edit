@@ -11,14 +11,19 @@ This repository contains the full **Steer2Edit** pipeline with three behavior co
 - `truthfulness/`
 - `efficient_reasoning/`
 
-Each behavior control includes the data for probing, 
+Each behavior control includes the data for probing:
 
-* Safety: `safety_alignment/data/` (advllm & gcg adversarial prompts, benign prompts from Alpaca dataset)
-* Truth: `truthfulness/data/truthfulqa/`
-* Efficiency: `efficient_reasoning/data/`
+* **Safety Alignment:** `safety_alignment/data/` (advllm & gcg adversarial prompts, benign prompts from Alpaca dataset)
+* **Truthfulness:** `truthfulness/data/truthfulqa/`
+* **Efficienct Reasoning:** `efficient_reasoning/data/`
 
-scripts for generating model responses and extracting steering vectors, component-level weight editing implementations, and evaluations across specific Steer2Edit configurations.
-
+---
+## Table of Contents
+* [Setup](#setup)
+* [Safety Alignment](#safety-alignment)
+* [Truthfulness](#truthfulness)
+* [Efficient Reasoning](#efficient-reasoning)
+* [Cite this work](#cite-this-work)
 
 ---
 
@@ -305,7 +310,7 @@ python visualize_edit.py \
 
 ---
 
-## Citation
+## Cite this work
 
 ```bibtex
 @article{steer2edit2026,
