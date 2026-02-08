@@ -109,17 +109,18 @@ python visualize_edit.py \
 
 **Expected figures:**
 
-<div style="display: flex; justify-content: center; gap: 10px;">
-  <figure style="flex: 1; max-width: 45%;">
-    <img src="figs/tradeoff_final_safety.png" style="width: 100%;" alt="Safety-Utility Trade-off">
-    <figcaption align="center"><b>Safety-Utility Trade-off</b></figcaption>
-  </figure>
-
-  <figure style="flex: 1; max-width: 45%;">
-    <img src="figs/edit_distribution_safety.png" style="width: 100%;" alt="Heatmap of Edit Strengths">
-    <figcaption align="center"><b>Heatmap of Edit Strength</b></figcaption>
-  </figure>
-</div>
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="figs/tradeoff_final_safety.png" width="95%" alt="Safety-Utility Trade-off"><br>
+      <b>Safety–Utility Trade-off</b>
+    </td>
+    <td align="center" width="50%">
+      <img src="figs/edit_distribution_safety.png" width="95%" alt="Safety edit heatmap"><br>
+      <b>Heatmap of Edit Strengths</b>
+    </td>
+  </tr>
+</table>
 
 
 
@@ -203,17 +204,19 @@ python visualize_edit.py \
 
 **Expected figures:**
 
-<div style="display: flex; justify-content: center; gap: 10px;">
-  <figure style="flex: 1; max-width: 45%; text-align: center;">
-    <img src="figs/tradeoff_final_truth.png" style="width: 100%;" alt="Truthfulness-Utility Trade-off">
-    <figcaption><b>Truthfulness–Utility Trade-off</b></figcaption>
-  </figure>
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="figs/tradeoff_final_truth.png" width="95%" alt="Truthfulness-Utility Trade-off"><br>
+      <b>Truthfulness–Utility Trade-off</b>
+    </td>
+    <td align="center" width="50%">
+      <img src="figs/edit_distribution_truth.png" width="95%" alt="Truthfulness edit heatmap"><br>
+      <b>Heatmap of Edit Strengths</b>
+    </td>
+  </tr>
+</table>
 
-  <figure style="flex: 1; max-width: 45%; text-align: center;">
-    <img src="figs/edit_distribution_truth.png" style="width: 100%;" alt="Truthfulness edit heatmap">
-    <figcaption><b>Heatmap of Edit Strengths</b></figcaption>
-  </figure>
-</div>
 
 
 ---
@@ -286,17 +289,19 @@ python visualize_edit.py \
 
 **Expected figures:**
 
-<div style="display: flex; justify-content: center; gap: 10px;">
-  <figure style="flex: 1; max-width: 45%; text-align: center;">
-    <img src="figs/tradeoff_final_efficiency.png" style="width: 100%;" alt="Efficiency trade-off">
-    <figcaption><b>Efficiency-Accuracy Trade-off</b></figcaption>
-  </figure>
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="figs/tradeoff_final_efficiency.png" width="95%" alt="Efficiency-Accuracy Trade-off"><br>
+      <b>Efficiency–Accuracy Trade-off</b>
+    </td>
+    <td align="center" width="50%">
+      <img src="figs/edit_distribution_efficiency.png" width="95%" alt="Efficiency edit heatmap"><br>
+      <b>Heatmap of Edit Strengths</b>
+    </td>
+  </tr>
+</table>
 
-  <figure style="flex: 1; max-width: 45%; text-align: center;">
-    <img src="figs/edit_distribution_efficiency.png" style="width: 100%;" alt="Efficiency edit heatmap">
-    <figcaption><b>Heatmap of Edit Strengths</b></figcaption>
-  </figure>
-</div>
 
 ---
 
