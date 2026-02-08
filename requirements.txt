@@ -1,0 +1,6 @@
+torch==2.6.0
+transformers==4.55.2
+datasets==4.2.0
+matplotlib==3.10.7
+math_verify==0.8.0
+vllm==0.8.5

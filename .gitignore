@@ -1,0 +1,8 @@
+# Outputs
+**/responses/*
+**/directions/*
+**/edited_models/*
+**/evaluate_results/*
+**/logs/*
+**/plots/*
+**/plots_tradeoff/*
