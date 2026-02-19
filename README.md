@@ -1,6 +1,6 @@
 # Steer2Edit
 
-This is the official repository for the paper: [**Steer2Edit: From Activation Steering to Component-Level Editing**](). Here is our 5 min read [project website](https://lilywenglab.github.io/Steer2Edit/).
+This is the official repository for the paper: [**Steer2Edit: From Activation Steering to Component-Level Editing**](https://arxiv.org/abs/2602.09870). Here is our 5 min read [project website](https://lilywenglab.github.io/Steer2Edit/).
 
 ---
 ## Table of Contents
