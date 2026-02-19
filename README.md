@@ -2,6 +2,18 @@
 
 This is the official repository for the paper: [**Steer2Edit: From Activation Steering to Component-Level Editing**](). Here is our 5 min read [project website](https://lilywenglab.github.io/Steer2Edit/).
 
+---
+## Table of Contents
+* [Introduction](#Introduction)
+* [Setup](#setup)
+* [Safety Alignment](#safety-alignment)
+* [Truthfulness](#truthfulness)
+* [Efficient Reasoning](#efficient-reasoning)
+* [Cite this work](#cite-this-work)
+
+---
+## Introduction
+In this work, we propose Steer2Edit, a theoretically grounded, training-free framework that transforms steering vectors from inference-time control signals into diagnostic signals for component-level rank-1 weight editing.
 <figure>
   <img src="figs/overview.png" width="100%" alt="Steer2Edit overview">
 </figure>
@@ -17,13 +29,6 @@ Each behavior control includes the data for probing:
 * **Truthfulness:** `truthfulness/data/truthfulqa/`
 * **Efficienct Reasoning:** `efficient_reasoning/data/`
 
----
-## Table of Contents
-* [Setup](#setup)
-* [Safety Alignment](#safety-alignment)
-* [Truthfulness](#truthfulness)
-* [Efficient Reasoning](#efficient-reasoning)
-* [Cite this work](#cite-this-work)
 
 ---
 
@@ -313,12 +318,11 @@ python visualize_edit.py \
 ## Cite this work
 
 ```bibtex
-@article{steer2edit2026,
-  title   = {Steer2Edit},
-  author  = {TBD},
-  journal = {arXiv},
-  year    = {2026},
-  note    = {placeholder}
+@article{sun2026steer2edit,
+  title={Steer2Edit: From Activation Steering to Component-Level Editing},
+  author={Sun, Chung-En and Yan, Ge and Wang, Zimo and Weng, Tsui-Wei},
+  journal={arXiv preprint arXiv:2602.09870},
+  year={2026}
 }
 ```
 
