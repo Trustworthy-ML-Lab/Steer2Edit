@@ -124,26 +124,29 @@ def compute_edits(
                     "k_hat": k_hat,                            # store on CPU
                 }
 
-        # ----- MLP neurons -----
+        # ----- MLP neurons (vectorized) -----
         if rho_mlp > 0:
             Wd = mlp.down_proj.weight.data.to(device)          # [H, I]
-            for idx in range(num_neurons):
-                W_col = Wd[:, idx]                             # [H]
-                g = F.cosine_similarity(vhat_mlp, W_col * x_mean_mlp[idx], dim=0)
 
-                lam = elastic_net_lambda(g.view(1), rho_mlp, alpha).item()
-                if lam == 0.0:
-                    continue
+            # Vectorized importance scores for all neurons at once
+            scaled_Wd = Wd * x_mean_mlp.unsqueeze(0)           # [H, I]
+            G = F.cosine_similarity(vhat_mlp.unsqueeze(1), scaled_Wd, dim=0)  # [I]
 
-                # k is scalar; normalization ⇒ sign(k)
-                k_scalar = torch.dot(W_col, vhat_mlp).item()
-                if k_scalar == 0.0:
-                    continue
-                lam_eff = float(lam * (1.0 if k_scalar > 0 else -1.0))  # fold sign into lambda
+            # Vectorized elastic-net lambda
+            lambdas = elastic_net_lambda(G, rho_mlp, alpha)     # [I]
 
-                mlp_factors[(i, idx)] = {
-                    "lambda": lam_eff
-                }
+            # Vectorized k_scalar = dot(Wd[:, idx], vhat_mlp) for all neurons
+            k_scalars = Wd.T @ vhat_mlp                        # [I]
+
+            # Collect non-zero edits
+            nonzero_mask = (lambdas != 0.0) & (k_scalars != 0.0)
+            nonzero_idxs = torch.where(nonzero_mask)[0]
+
+            for idx_t in nonzero_idxs:
+                idx = idx_t.item()
+                lam = lambdas[idx].item()
+                k_sign = 1.0 if k_scalars[idx].item() > 0 else -1.0
+                mlp_factors[(i, idx)] = {"lambda": float(lam * k_sign)}
 
     edits = {
         "attn": attn_factors,
@@ -171,7 +174,7 @@ def compute_edits(
 # ----------------------
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model", type=str, default="qwen2.5-7b")
+    parser.add_argument("--model", type=str, default="qwen3-4b-thinking")
     parser.add_argument("--directions_path", type=str, default=None)
     parser.add_argument("--rho_attn", type=float, default=-1.0)
     parser.add_argument("--rho_mlp", type=float, default=-1.0)
@@ -184,7 +187,7 @@ if __name__ == "__main__":
     assert args.alpha < 1.0, "alpha must be <1 for the Elastic-Net closed form."
 
     model_path = MODEL_MAP[args.model]
-    directions_path = args.directions_path or os.path.join("directions", f"{args.model}_truthful_dirs.pt")
+    directions_path = args.directions_path or os.path.join("directions", f"{args.model}_efficient_reasoning_dirs.pt")
 
     save_path = args.save_path or build_default_edits_path(
         model_name=args.model,
